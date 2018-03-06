@@ -9,12 +9,11 @@ namespace CustomListClass
 {
     public class CustomList<T> : IEnumerable<T>
     {
-        //member variables
+
         int count;
         int capacity;
         T[] listItems;
 
-        //properties
         public int Count
         {
             get { return count; }
@@ -25,17 +24,13 @@ namespace CustomListClass
             get { return capacity; }
         }
 
-        //indexer
+    
         public T this [int i]
         {
             get
             {
                 if ( i > count-1 )
                 {
-                    //Note: I did not throw the built in System.IndexOutOfRangeException exception becuase according to the Microsoft C# programming guide:
-                    //Do not throw System.Exception, System.SystemException, System.NullReferenceException,
-                    //or System.IndexOutOfRangeException intentionally from your own source code.
-                    //FOUND HERE: docs.microsoft.com/en-us/dotnet/csharp/programming-guide/exceptions/creating-and-throwing-exceptions
                     throw new Exception("Index out of range of CustomList");
                 }
                 else
@@ -49,7 +44,7 @@ namespace CustomListClass
             }
         }
 
-        //constructor
+ 
         public CustomList()
         {
             count = 0;
@@ -57,7 +52,6 @@ namespace CustomListClass
             listItems = new T[capacity];
         }
 
-        //member methods
         T[] GetLargerArray()
         {
             capacity *= 2;
@@ -231,7 +225,7 @@ namespace CustomListClass
             return this;
         }
 
-        //QuickSort Methods::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
 
         static public int Partition(int[] numbers, int left, int right)
         {
@@ -259,7 +253,7 @@ namespace CustomListClass
 
         static public void SortQuick(int[] arr, int left, int right)
         {
-            // For Recusrion  
+
             if (left < right)
             {
                 int pivot = Partition(arr, left, right);
