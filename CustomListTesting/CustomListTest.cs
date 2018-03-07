@@ -432,7 +432,74 @@ namespace CustomListTesting
             //assert
             Assert.AreEqual(result, descriptionString);
         }
+        [TestMethod]
+        public void IndexOf_AddFourIntegersRunIndexOfOnThird_ResultIsTwo()
+        {
+            //arrange
+            CustomList<int> myList = new CustomList<int>();
+            myList.Add(1);
+            myList.Add(2);
+            myList.Add(3);
+            myList.Add(4);
 
+            //act
+            int result = myList.IndexOf(3);
+
+            //assert
+            Assert.AreEqual(result, 2);
+        }
+
+        [TestMethod]
+        public void IndexOf_AddFourIntegersRunIndexOfUnfindable_ResultIsNegativeOne()
+        {
+            //arrange
+            CustomList<int> myList = new CustomList<int>();
+            myList.Add(1);
+            myList.Add(2);
+            myList.Add(3);
+            myList.Add(4);
+
+            //act
+            int result = myList.IndexOf(84);
+
+            //assert
+            Assert.AreEqual(result, -1);
+        }
+
+        [TestMethod]
+        public void IndexOf_AddFourStringsRunIndexOfOnFourth_ResultIsThree()
+        {
+            //arrange
+            CustomList<string> myList = new CustomList<string>();
+            myList.Add("alpha");
+            myList.Add("beta");
+            myList.Add("charlie");
+            myList.Add("delta");
+
+            //act
+            int result = myList.IndexOf("delta");
+
+            //assert
+            Assert.AreEqual(result, 3);
+        }
+
+        [TestMethod]
+        public void IndexOf_AddDuplicateStringsRunIndexOfOnString_ResultIsIndexOfFirstOccurance()
+        {
+            //arrange
+            CustomList<string> myList = new CustomList<string>();
+            myList.Add("alpha");
+            myList.Add("beta");
+            myList.Add("charlie");
+            myList.Add("delta");
+            myList.Add("beta");
+
+            //act
+            int result = myList.IndexOf("beta");
+
+            //assert
+            Assert.AreEqual(result, 1);
+        }
 
 
     }
